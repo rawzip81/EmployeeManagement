@@ -1,1 +1,20 @@
-<p>add-employee works!</p>
+<div class="m-4 container">
+    <button routerLink="/">Go Home</button>
+    <br>
+    <br>
+<h2>Add New Employee Details</h2>
+<form [formGroup]="profileData" (ngSubmit)="onSubmit()">
+    <input type="text" id="firstName" formControlName="firstName" placeholder="First Name" class="mx-4">
+    <br>
+    <input type="text" id="lastName" formControlName="lastName" placeholder="Last Name" class="mx-4">
+    <br>
+    <input type="text" id="dob" formControlName="dob" placeholder="Date of Birth MM/DD/YY" class="mx-4">
+    <br>
+    <input type="text" id="hireDate" formControlName="hireDate" placeholder="Hire Date MM/DD/YY" class="mx-4">
+    <br>
+    <input type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number" class="mx-4">
+<br>
+<br>
+<button type="submit">Submit</button>
+</form>
+</div>
