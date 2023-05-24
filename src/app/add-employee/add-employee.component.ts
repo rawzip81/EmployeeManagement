@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { EmployeeService } from '../employee.service';
+import { Employee } from '../model/employee.model';
 
 @Component({
   selector: 'app-add-employee',
@@ -8,16 +10,36 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class AddEmployeeComponent {
   
-  profileData = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    dob: new FormControl(''),
-    hireDate: new FormControl(''),
-    phoneNumber: new FormControl('')
-  });
+  employee: Employee = {
+    firstName:"",
+    lastName:"",
+    dob: new Date(),
+    phoneNumber:"",
+    hireDate: new Date(),
+  }
   
-  onSubmit(){
-    console.warn(this.profileData.value); 
+  submitted = false;
+
+  constructor(private employeeService: EmployeeService){
+  
+  }
+  saveEmployee(): void{
+    const data = {
+      firstName: this.employee.firstName,
+      lastName: this.employee.lastName,
+      dob: this.employee.dob,
+      phoneNumber: this.employee.phoneNumber,
+      hireDate: this.employee.hireDate,
+  
+    }
+    this.employeeService.storeData(data)
+    .subscribe({
+      next: (data) => {
+        console.log(data);
+        this.submitted = true;
+      },
+      error: (e) => console.log(e)
+    })
   }
 
 }

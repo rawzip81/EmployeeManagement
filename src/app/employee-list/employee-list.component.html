@@ -2,7 +2,7 @@
     <h1 class="header">Employee Management System</h1>
       <div class="row">
          <div class="m-2">
-              <button routerLink="/add" type="button" class="btn btn-success">Add Employee</button>
+              <button routerLink="/add" type="button" class="btn btn-success">Add New Employee</button>
          </div>
       </div>
           <div> 
@@ -13,10 +13,31 @@
                   <th scope="col">First Name</th>
                   <th scope="col">Last Name</th>
                   <th scope="col">Date of Birth</th>
-                  <th scope="col">Hire Date</th> 
-                  <th scope="col">Phone Number</th>  
+                  <th scope="col">Phone Number</th> 
+                  <th scope="col">Hire Date</th>  
                 </tr>
               </thead>
+              <tbody *ngFor="let data of employee; let i = index">
+                <tr>
+                <th scope="row">{{i+1}}</th>
+                <td>{{data.firstName}}</td>
+                <td>{{data.lastName}}</td>
+                <td>{{data.dob}}</td>
+                <td>{{data.phoneNumber}}</td>
+                <td>{{data.hireDate}}</td>
+                </tr>
+                </tbody>
             </table>
       </div>
 </div>
+<div *ngIf="showEmployeeDetails">
+<div class="mx-4">
+<p>Course Name: {{currentEmployee.firstName}}</p>
+<p>Course Description: {{currentEmployee.lastName}}</p>
+<p>Course Status: {{currentEmployee.dob}}</p>
+<p>Course Status: {{currentEmployee.phoneNumber}}</p>
+<p>Course Status: {{currentEmployee.hireDate}}</p>
+</div>
+</div>
+
+

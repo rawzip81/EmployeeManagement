@@ -2,19 +2,19 @@
     <button routerLink="/">Go Home</button>
     <br>
     <br>
-<h2>Add New Employee Details</h2>
-<form [formGroup]="profileData" (ngSubmit)="onSubmit()">
-    <input type="text" id="firstName" formControlName="firstName" placeholder="First Name" class="mx-4">
-    <br>
-    <input type="text" id="lastName" formControlName="lastName" placeholder="Last Name" class="mx-4">
-    <br>
-    <input type="text" id="dob" formControlName="dob" placeholder="Date of Birth MM/DD/YY" class="mx-4">
-    <br>
-    <input type="text" id="hireDate" formControlName="hireDate" placeholder="Hire Date MM/DD/YY" class="mx-4">
-    <br>
-    <input type="text" id="phoneNumber" formControlName="phoneNumber" placeholder="Phone Number" class="mx-4">
-<br>
-<br>
-<button type="submit">Submit</button>
+<h4>ADD NEW EMPLOYEE DETAILS</h4>
+<div class="m-4" *ngIf="!submitted"> 
+<form>
+    <div class="form-group my-4">
+        <input type="text" [(ngModel)]="employee.firstName" class="form-control my-2" name="firstname" id="firstname" placeholder="First Name">
+        <input type="text" [(ngModel)]="employee.lastName" class="form-control my-2" name="lastName" id="lastName" placeholder="Last Name">
+        <input type="date" [(ngModel)]="employee.dob" class="form-control my-2"  name="dob" id="dob"  placeholder="D.O.B MM/DD/YYYY">
+        <input type="text" [(ngModel)]="employee.phoneNumber" class="form-control my-2" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+        <input type="date" [(ngModel)]="employee.hireDate" class="form-control" name="hireDate" id="hireDate" placeholder="Hire Date MM/DD/YYYY">
+    </div>
+<button type="submit" class="btn btn-primary" (click)="saveEmployee()">Add Employee</button>
 </form>
 </div>
+<div *ngIf="submitted">Employee Added Successfully</div> 
+</div>
+    
