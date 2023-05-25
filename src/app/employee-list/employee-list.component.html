@@ -15,6 +15,7 @@
                   <th scope="col">Date of Birth</th>
                   <th scope="col">Phone Number</th> 
                   <th scope="col">Hire Date</th>  
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody *ngFor="let data of employee; let i = index">
@@ -25,6 +26,14 @@
                 <td>{{data.dob}}</td>
                 <td>{{data.phoneNumber}}</td>
                 <td>{{data.hireDate}}</td>
+                <td>
+                  <!-- view -->
+                  <a class="mx-2" (click)="displayDetails(data)"><i class="bi bi-eye"></i></a>
+                  <!-- edit -->
+                  <a class="mx-2" routerLink="/edit/{{data.id}}"><i class="bi bi-pencil-square" style="color: #FFC107;"></i></a>
+                  <!-- delete by id -->
+                  <a class="mx-2" (click)="deleteCurrentEmployee(data.id)"><i class="bi bi-trash" style="color: #e33724;"></i></a>
+                  </td>
                 </tr>
                 </tbody>
             </table>
@@ -32,12 +41,14 @@
 </div>
 <div *ngIf="showEmployeeDetails">
 <div class="mx-4">
-<p>Course Name: {{currentEmployee.firstName}}</p>
-<p>Course Description: {{currentEmployee.lastName}}</p>
-<p>Course Status: {{currentEmployee.dob}}</p>
-<p>Course Status: {{currentEmployee.phoneNumber}}</p>
-<p>Course Status: {{currentEmployee.hireDate}}</p>
+<p>First Name: {{currentEmployee.firstName}}</p>
+<p>Last Name: {{currentEmployee.lastName}}</p>
+<p>Date of Birth: {{currentEmployee.dob}}</p>
+<p>Phone Number: {{currentEmployee.phoneNumber}}</p>
+<p>Hire Date: {{currentEmployee.hireDate}}</p>
 </div>
 </div>
+
+<router-outlet></router-outlet>
 
 

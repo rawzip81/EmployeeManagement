@@ -16,8 +16,16 @@ getAll() : Observable<Employee[]>{
 }
 
 storeData(data: any): Observable<any>{
-  console.log("hello");
   return this.http.post(baseUrl, data);
+}
+get(id: number ): Observable<Employee>{
+  console.log("Service id: ", id);
+  console.log("hello");
+  return this.http.get<Employee>(`${baseUrl}/${id}` );
+}
+
+deleteEmployee(id: any): Observable<any>{
+  return this.http.delete(`${baseUrl}/${id}`);
 }
 
 }

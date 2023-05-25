@@ -13,16 +13,18 @@ export class AddEmployeeComponent {
   employee: Employee = {
     firstName:"",
     lastName:"",
-    dob: new Date(),
+    dob:"",
     phoneNumber:"",
-    hireDate: new Date(),
+    hireDate:"",
   }
   
   submitted = false;
+  
 
   constructor(private employeeService: EmployeeService){
   
   }
+
   saveEmployee(): void{
     const data = {
       firstName: this.employee.firstName,
@@ -40,6 +42,16 @@ export class AddEmployeeComponent {
       },
       error: (e) => console.log(e)
     })
+  }
+  clearInputData():void{
+    this.submitted = false;
+    this.employee = {
+      firstName:'',
+      lastName:'',
+      dob: '',
+      phoneNumber:'',
+      hireDate:''
+    }
   }
 
 }

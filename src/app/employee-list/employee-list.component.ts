@@ -12,9 +12,9 @@ employee?: Employee[];
 currentEmployee: Employee = {
   firstName:'',
   lastName:'',
-  dob: new Date(),
+  dob:'',
   phoneNumber:'',
-  hireDate: new Date(),
+  hireDate: ''
 }
 showEmployeeDetails=false
 
@@ -28,6 +28,22 @@ getAllEmployeesList():void {
   this.employeeService.getAll().subscribe({
     next: (data) => {
       this.employee = data
+      console.log(data);
+    },
+    error: (e) => console.log(e)
+  })
+}
+displayDetails(data: any): void{
+  this.showEmployeeDetails=!this.showEmployeeDetails
+  this.currentEmployee = data;
+}
+
+deleteCurrentEmployee(id: any): void{
+  this.employeeService.deleteEmployee(id).subscribe({
+    next: (data) => {
+      this.employee = data
+      this.showEmployeeDetails=false
+      this.getAllEmployeesList()
       console.log(data);
     },
     error: (e) => console.log(e)

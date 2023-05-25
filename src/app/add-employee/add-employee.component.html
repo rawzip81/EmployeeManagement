@@ -5,16 +5,18 @@
 <h4>ADD NEW EMPLOYEE DETAILS</h4>
 <div class="m-4" *ngIf="!submitted"> 
 <form>
-    <div class="form-group my-4">
+    <div class="form-group my-4"> 
         <input type="text" [(ngModel)]="employee.firstName" class="form-control my-2" name="firstname" id="firstname" placeholder="First Name">
         <input type="text" [(ngModel)]="employee.lastName" class="form-control my-2" name="lastName" id="lastName" placeholder="Last Name">
-        <input type="date" [(ngModel)]="employee.dob" class="form-control my-2"  name="dob" id="dob"  placeholder="D.O.B MM/DD/YYYY">
-        <input type="text" [(ngModel)]="employee.phoneNumber" class="form-control my-2" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
-        <input type="date" [(ngModel)]="employee.hireDate" class="form-control" name="hireDate" id="hireDate" placeholder="Hire Date MM/DD/YYYY">
+        <input type="text" [(ngModel)]="employee.dob" class="form-control my-2"  name="dob" id="dob"  placeholder="D.O.B MM/DD/YYYY">
+        <input type="text" [(ngModel)]="employee.phoneNumber" class="form-control my-2  " name="phoneNumber" id="phoneNumber" placeholder="Phone Number"> 
+        <input type="text" [(ngModel)]="employee.hireDate" class="form-control" name="hireDate" id="hireDate" placeholder="Hire Date MM/DD/YYYY">
     </div>
 <button type="submit" class="btn btn-primary" (click)="saveEmployee()">Add Employee</button>
 </form>
 </div>
-<div *ngIf="submitted">Employee Added Successfully</div> 
+<div *ngIf="submitted">Employee Added Successfully <br>
+    <button class="btn btn-success" (click)="clearInputData()">Add Another Employee</button>
+</div> 
 </div>
     
