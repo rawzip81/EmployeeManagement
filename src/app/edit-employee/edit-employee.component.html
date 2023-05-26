@@ -1,0 +1,18 @@
+<div class="container m-4">
+    <button routerLink="/">Go Home</button>
+    <br>
+    <br>
+    <h4>EDIT EMPLOYEE</h4>
+    <form>
+        <div class="form-group my-4"> 
+            <input type="text" [(ngModel)]="currentEmployee.firstName" class="form-control my-2" name="firstname" id="firstname"/>
+            <input type="text" [(ngModel)]="currentEmployee.lastName" class="form-control my-2" name="lastName" id="lastName"/>
+            <input type="text" [(ngModel)]="currentEmployee.dob" class="form-control my-2"  name="dob" id="dob"/>
+            <input type="text" [(ngModel)]="currentEmployee.phoneNumber" class="form-control my-2  " name="phoneNumber" id="phoneNumber"/> 
+            <input type="text" [(ngModel)]="currentEmployee.hireDate" class="form-control" name="hireDate" id="hireDate"/>
+        </div>
+    <button type="submit" class="btn btn-primary" (click)="updateEmployee()">Update Employee</button>
+    </form>
+</div>
+
+
